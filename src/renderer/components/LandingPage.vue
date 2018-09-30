@@ -1,10 +1,12 @@
 <template>
   <div id="wrapper">
+    vue打包
+    <button @click="update">点击更新</button>
+    <div>{{tip}}</div>
    <div class="progressContainer motai" v-if="downloadPercent > 0">
      <div class="progress" :style="{width:Speed+'%'}">
           <b>{{Speed}}</b>
      </div>
-     <div>{{tip}}</div>
    </div>
 
   </div>
@@ -27,7 +29,8 @@
       }
     },
 
-    mounted () {
+    created () {
+      console.log("start")
       const _this = this
       this.$electron.ipcRenderer.send('checkForUpdate')
       this.$electron.ipcRenderer.on('message', (event, text) => {
@@ -44,6 +47,9 @@
   },
 
     methods: {
+      update() {
+        this.$electron.ipcRenderer.send('downloadUpdate')
+      }
     }
   }
 </script>

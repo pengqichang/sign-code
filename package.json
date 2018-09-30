@@ -51,10 +51,9 @@
     },
     "win": {
       "icon": "build/icons/icon.ico",
-      "target": "nsis",
-      "signingHashAlgorithms": ["sha1"],
-      "timeStampServer": "http://timestamp.comodoca.com",
-      "certificateSubjectNameString": "WoSign Code Signing CA"
+      "publisherName": "WoSign Code Signing CA",
+      "certificatePassword": "iLovelm99",
+      "certificateFile": "./zhimapai.p12"
     },
     "linux": {
       "icon": "build/icons"
